@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "788894374979",
+    "firebase_url": "https://hack20-atomica.firebaseio.com",
+    "project_id": "hack20-atomica",
+    "storage_bucket": "hack20-atomica.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788894374979:android:e1607e993560c414aa48f6",
+        "android_client_info": {
+          "package_name": "com.example.hack20_atomica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788894374979-6sfe12k53q2rlurmitmji1o47gau7pih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hack20_atomica",
+            "certificate_hash": "f284ddc47770041be224cd145dd771a0459dfd12"
+          }
+        },
+        {
+          "client_id": "788894374979-k9cqfu8ih058ds3i5raavfdnurq39pfs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJkf0DeinD40JAkQN3OQIazBASrpbsR6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788894374979-k9cqfu8ih058ds3i5raavfdnurq39pfs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
