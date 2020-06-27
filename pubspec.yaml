@@ -31,10 +31,14 @@ dependencies:
   firebase_auth: 0.16.1
   google_sign_in: 4.5.1
   flare_flutter: 2.0.3
+  mobx:
+  flutter_mobx:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  mobx_codegen:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
