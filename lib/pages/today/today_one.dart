@@ -58,7 +58,11 @@ class _TodayOneState extends State<TodayOne> {
                   padding: const EdgeInsets.all(20.0),
                   child: Observer(
                     builder: (context) => weatherStore.isLoading
-                        ? Container(height: 50,width:50,child: CupertinoActivityIndicator(),)
+                        ? Container(
+                            height: 50,
+                            width: 50,
+                            child: CupertinoActivityIndicator(),
+                          )
                         : Row(
                             children: [
                               Icon(
@@ -185,9 +189,12 @@ class _TodayOneState extends State<TodayOne> {
               ),
             ),
             Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                child: Text("Get started",
-                    style: TextStyle(color: Colors.white, fontSize: 20),),),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Text(
+                "Get started",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.only(top: 10.0, bottom: 10, left: 10),
               child: Container(
@@ -208,7 +215,11 @@ class _TodayOneState extends State<TodayOne> {
                       const EdgeInsets.only(left: 20.0, top: 20, bottom: 20),
                   child: Observer(
                     builder: (context) => newsStore.isLoading
-                        ? Container(height: 100,width:50,child: CupertinoActivityIndicator(),)
+                        ? Container(
+                            height: 100,
+                            width: 50,
+                            child: CupertinoActivityIndicator(),
+                          )
                         : GestureDetector(
                             onTap: () => _launchURL(newsStore.news.url),
                             child: Column(
@@ -241,12 +252,11 @@ class _TodayOneState extends State<TodayOne> {
                                 Container(
                                   width: double.maxFinite,
                                   child: Text(
-                                    "source: "+newsStore.news.source,
+                                    "source: " + newsStore.news.source,
                                     style: TextStyle(
-                                      color: Colors.white70,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w100
-                                    ),
+                                        color: Colors.white70,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w100),
                                   ),
                                 ),
                                 SizedBox(height: 10),
