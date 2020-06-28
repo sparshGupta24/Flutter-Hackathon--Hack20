@@ -88,6 +88,7 @@ class _TwinViewState extends State<TwinView> {
           height: MediaQuery.of(context).size.height * 0.75 * 0.9,
           width: MediaQuery.of(context).size.width * 0.8,
           child: PageView(
+            physics: NeverScrollableScrollPhysics(),
             controller: pageController,
             children: [
               pageOne,
