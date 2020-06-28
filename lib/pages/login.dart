@@ -13,12 +13,10 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   AuthStore authStore = new AuthStore();
-  bool trying;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    trying = false;
   }
 
   @override
@@ -35,15 +33,10 @@ class _LoginState extends State<Login> {
                 fit: BoxFit.contain, animation: "Untitled"),
           ),
           Observer(
+            name: 'login',
             builder: (context) => GestureDetector(
               onTap: () => {
-                setState(() {
-                  trying = true;
-                }),
                 authStore.googleSignIn().then((value) => {
-                      setState(() {
-                        trying = authStore.trying;
-                      }),
                       print(authStore.user.name),
                       Navigator.push(
                           context,
@@ -55,7 +48,7 @@ class _LoginState extends State<Login> {
                 width: MediaQuery.of(context).size.width / 2.1,
                 height: 100,
                 child: FlareActor("assets/google_sign_in.flr",
-                    fit: BoxFit.contain, animation: trying ? "go" : "idle"),
+                    fit: BoxFit.contain, animation: authStore.trying ? "go" : "idle"),
               ),
             ),
           ),

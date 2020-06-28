@@ -12,6 +12,7 @@ abstract class _AuthStore with Store {
   @observable
   bool _isTryingSignUp = false;
 
+  @computed
   bool get trying =>_isTryingSignUp;
   User get user => _signedInUser;
 

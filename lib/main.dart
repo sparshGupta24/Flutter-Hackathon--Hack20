@@ -19,8 +19,6 @@ class _MainAppState extends State<MainApp> {
   AuthStore authStore = new AuthStore();
   @override
   Widget build(BuildContext context) {
-    return Observer(
-        builder: (context) =>
-            Login());
+    return Login();
   }
 }//auth user check laga dena check commit #2
