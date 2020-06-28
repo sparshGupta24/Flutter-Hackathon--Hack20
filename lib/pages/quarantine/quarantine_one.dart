@@ -6,6 +6,7 @@ class QuarantineOne extends StatefulWidget {
 }
 
 class _QuarantineOneState extends State<QuarantineOne> {
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

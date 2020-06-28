@@ -33,6 +33,8 @@ dependencies:
   flare_flutter: 2.0.3
   mobx:
   flutter_mobx:
+  geolocator: ^5.1.3
+  http: 0.12.1
 
 dev_dependencies:
   flutter_test:
