@@ -14,20 +14,32 @@ abstract class _WeatherStore with Store {
   final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
 
   @observable
-  Position position = Position();
+  bool _isLoading = true;
 
   @observable
-  String city;
+  Position _position = Position();
 
   @observable
-  Weather weatherData = new Weather();
+  String _city;
+
+  @observable
+  Weather _weatherData = new Weather();
+
+  @computed
+  Position get position => _position;
+  String get city => _city;
+  Weather get weather => _weatherData;
+
+  @computed
+  bool get isLoading => _isLoading;
 
   @action
   getCurrentLocation() {
+    print(_isLoading);
     geolocator
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
-        .then((Position position) {
-      position = position;
+        .then((Position positionFound) {
+      _position = positionFound;
       getAddressFromLatLng();
     }).catchError((e) {
       print(e);
@@ -40,10 +52,13 @@ abstract class _WeatherStore with Store {
       print("andar aaye");
       geolocator
           .placemarkFromCoordinates(
-              position.latitude, position.longitude)
+              _position.latitude, _position.longitude)
           .then((value) {
+            print("placemark then mein");
         Placemark place = value[0];
-        city = place.locality;
+        _city = place.locality;
+            print("city set");
+
         getWeather();
       });
     } catch (e) {
@@ -60,15 +75,17 @@ abstract class _WeatherStore with Store {
     print('Response body: ${response.body}');
     var data = json.decode(response.body);
     print(data['main']['temp']);
-    weatherData.city = data['name'];
-    weatherData.country = data['sys']['country'];
-    weatherData.temperature = (data['main']['temp']-273).round();
-    weatherData.feelsLike = (data['main']['feels_like']-273).round();
-    weatherData.minTemp = (data['main']['temp_min']-273).round();
-    weatherData.maxTemp = (data['main']['temp_max']-273).round();
-    weatherData.humidity = data['main']['humidity'].round();
-    weatherData.weather = data['weather'][0]['main'];
+    _weatherData.city = data['name'];
+    _weatherData.country = data['sys']['country'];
+    _weatherData.temperature = (data['main']['temp']-273).round();
+    _weatherData.feelsLike = (data['main']['feels_like']-273).round();
+    _weatherData.minTemp = (data['main']['temp_min']-273).round();
+    _weatherData.maxTemp = (data['main']['temp_max']-273).round();
+    _weatherData.humidity = data['main']['humidity'].round();
+    _weatherData.weather = data['weather'][0]['main'];
     print("done");
+    _isLoading = false;
+    print(_isLoading);
   }
   
 }

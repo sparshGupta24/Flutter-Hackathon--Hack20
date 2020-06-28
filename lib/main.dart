@@ -7,7 +7,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'models/user_model.dart';
 
 void main() {
-  runApp(MaterialApp(theme: ThemeData(fontFamily: "Panton",canvasColor: Color(0xff1b1b1b)),home: SafeArea(child: MainApp())));
+  runApp(MaterialApp(theme: ThemeData(fontFamily: "Panton",canvasColor: Color(0xff1b1b1b),accentColor: Color(0xffff00a8)),home: SafeArea(child: MainApp())));
 }
 
 class MainApp extends StatefulWidget {
@@ -19,8 +19,6 @@ class _MainAppState extends State<MainApp> {
   AuthStore authStore = new AuthStore();
   @override
   Widget build(BuildContext context) {
-    return Observer(
-        builder: (context) =>
-            Login());
+    return Login();
   }
 }//auth user check laga dena check commit #2
