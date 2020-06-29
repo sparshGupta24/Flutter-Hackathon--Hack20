@@ -4,11 +4,13 @@ class Movie {
   String name;
   String about;
   String director;
-  String rating;
+  String img;
+  int rating;
 
   Movie(
       {@required this.name,
       @required this.about,
       @required this.director,
+      @required this.img,
       @required this.rating});
 }

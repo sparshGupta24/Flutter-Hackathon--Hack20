@@ -24,6 +24,21 @@ mixin _$LocalCovidStore on _LocalCovidStore, Store {
               name: '_LocalCovidStore.isLoading'))
           .value;
 
+  final _$_localCovidAtom = Atom(name: '_LocalCovidStore._localCovid');
+
+  @override
+  GlobalCovid get _localCovid {
+    _$_localCovidAtom.reportRead();
+    return super._localCovid;
+  }
+
+  @override
+  set _localCovid(GlobalCovid value) {
+    _$_localCovidAtom.reportWrite(value, super._localCovid, () {
+      super._localCovid = value;
+    });
+  }
+
   final _$_isLoadingAtom = Atom(name: '_LocalCovidStore._isLoading');
 
   @override
@@ -69,6 +84,21 @@ mixin _$LocalCovidStore on _LocalCovidStore, Store {
     });
   }
 
+  final _$_countAtom = Atom(name: '_LocalCovidStore._count');
+
+  @override
+  ObservableList<double> get _count {
+    _$_countAtom.reportRead();
+    return super._count;
+  }
+
+  @override
+  set _count(ObservableList<double> value) {
+    _$_countAtom.reportWrite(value, super._count, () {
+      super._count = value;
+    });
+  }
+
   final _$getAddressFromLatLngAsyncAction =
       AsyncAction('_LocalCovidStore.getAddressFromLatLng');
 
@@ -76,6 +106,14 @@ mixin _$LocalCovidStore on _LocalCovidStore, Store {
   Future getAddressFromLatLng() {
     return _$getAddressFromLatLngAsyncAction
         .run(() => super.getAddressFromLatLng());
+  }
+
+  final _$getLocalCovidDataAsyncAction =
+      AsyncAction('_LocalCovidStore.getLocalCovidData');
+
+  @override
+  Future getLocalCovidData() {
+    return _$getLocalCovidDataAsyncAction.run(() => super.getLocalCovidData());
   }
 
   final _$_LocalCovidStoreActionController =
