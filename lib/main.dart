@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hack20_atomica/pages/login.dart';
 import 'package:hack20_atomica/stores/auth_store/authstore.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:intl/intl.dart';
 
 import 'models/user_model.dart';
 
@@ -19,6 +20,7 @@ class _MainAppState extends State<MainApp> {
   AuthStore authStore = new AuthStore();
   @override
   Widget build(BuildContext context) {
+    print(DateFormat('yyyy-MM-dd').format(new DateTime.now()));
     return Login();
   }
 }//auth user check laga dena check commit #2
