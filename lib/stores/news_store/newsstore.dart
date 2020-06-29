@@ -22,7 +22,7 @@ abstract class _NewsStore with Store {
 
   @action
   getNews() async {
-    var url = 'http://newsapi.org/v2/everything?q=environment&from=2020-05-28&sortBy=publishedAt&apiKey=680f2aeff8ad42b1a8cc578b5a8a6e01';
+    var url = 'http://newsapi.org/v2/everything?q=earth&from=2020-05-29&sortBy=publishedAt&apiKey=680f2aeff8ad42b1a8cc578b5a8a6e01';
     var response = await http.get(url);
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');
