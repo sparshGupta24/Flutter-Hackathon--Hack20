@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:hack20_atomica/models/news_model.dart';
 import 'package:mobx/mobx.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:intl/intl.dart';
 part 'newsstore.g.dart';
 class NewsStore = _NewsStore with _$NewsStore;
 
@@ -22,7 +22,8 @@ abstract class _NewsStore with Store {
 
   @action
   getNews() async {
-    var url = 'http://newsapi.org/v2/everything?q=earth&from=2020-05-29&sortBy=publishedAt&apiKey=680f2aeff8ad42b1a8cc578b5a8a6e01';
+    DateFormat.yMd().format(new DateTime.now());
+    var url = 'http://newsapi.org/v2/everything?q=earth&from=${DateFormat.yMd().format(new DateTime.now())}&sortBy=publishedAt&apiKey=680f2aeff8ad42b1a8cc578b5a8a6e01';
     var response = await http.get(url);
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');
